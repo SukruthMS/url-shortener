@@ -20,5 +20,12 @@ app.use("/user", userRoutes);
 app.use("/url", urlRoutes);
 app.use("/", redirectRoutes);
 
-const port = process.env.PORT || 3000;
-app.listen(port, () => console.log(`Server running on port ${port}`));
+// Start the server only if we're not in a test environment
+if (process.env.NODE_ENV !== 'test') {
+  const port = process.env.PORT || 3000;
+  app.listen(port, () => {
+    console.log(`Server is running on port ${port}`);
+  });
+}
+
+module.exports = app;

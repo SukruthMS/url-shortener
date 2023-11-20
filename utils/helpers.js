@@ -25,8 +25,8 @@ function isValidUrl(urlString) {
 }
 
 function getBaseUrl(req) {
-  const protocol = req.protocol || "http"; // Default to 'http'
-  const host = req.get("host") || "localhost:5000"; // Default to 'localhost:5000'
+  const protocol = req.protocol || "http";
+  const host = req.get("host") || "localhost:3000";
 
   return `${protocol}://${host}`;
 }
