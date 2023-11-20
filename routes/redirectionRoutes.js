@@ -2,7 +2,19 @@ const express = require("express");
 const Url = require("../models/url.js");
 const router = express.Router();
 
-// URL Redirection
+/**
+ * Route serving URL redirection.
+ * @name get/:shortId
+ * @function
+ * @memberof module:router
+ * @inner
+ * @param {string} path - Express path
+ * @param {callback} middleware - Express middleware.
+ * @description Redirects to the original (long) URL based on the provided shortId.
+ *              If the shortId does not correspond to an existing URL entry,
+ *              responds with a 404 Not Found error. For any other errors,
+ *              responds with a 500 Internal Server Error.
+ */
 router.get("/:shortId", async (req, res) => {
   const { shortId } = req.params;
 

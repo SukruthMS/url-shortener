@@ -6,7 +6,15 @@ const { generateShortId, canMakeRequest, isValidUrl, getBaseUrl } = require("../
 const router = express.Router();
 const constants = require("../utils/constants.js");
 
-// URL Shortening
+/**
+ * @route POST /shorten
+ * @description Shortens a given URL.
+ * @access Public
+ * @param {string} username - Username of the user requesting URL shortening.
+ * @param {string} longUrl - The original URL to be shortened.
+ * @param {string} [preferredShortId] - Optional preferred short ID for the URL.
+ * @returns {Object} JSON object containing the shortened URL and remaining request count.
+ */
 router.post("/shorten", async (req, res) => {
   const { username, longUrl, preferredShortId } = req.body;
 
@@ -70,7 +78,13 @@ router.post("/shorten", async (req, res) => {
   }
 });
 
-// User URL History
+/**
+ * @route GET /history
+ * @description Retrieves the URL shortening history of a given user.
+ * @access Public
+ * @param {string} username - Username whose URL history is being requested.
+ * @returns {Object} JSON object containing an array of URLs shortened by the user.
+ */
 router.get("/history", async (req, res) => {
   const username = req.query.username;
 
