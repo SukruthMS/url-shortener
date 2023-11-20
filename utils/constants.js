@@ -6,7 +6,6 @@ let constants = {
     4: 100,
     5: 50,
   },
-  shortUrlPrefix: "http://tinyurl.com/",
   chars: "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ",
 };
 

@@ -3,6 +3,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const userRoutes = require("./routes/userRoutes");
 const urlRoutes = require("./routes/urlRoutes");
+const redirectRoutes = require("./routes/redirectionRoutes");
 const morgan = require('morgan');
 
 const app = express();
@@ -17,6 +18,7 @@ mongoose
 
 app.use("/user", userRoutes);
 app.use("/url", urlRoutes);
+app.use("/", redirectRoutes);
 
 const port = process.env.PORT || 3000;
 app.listen(port, () => console.log(`Server running on port ${port}`));
