@@ -10,8 +10,11 @@ const constants = require("../utils/constants");
 let mongoServer;
 
 beforeAll(async () => {
+  if (mongoose.connection.readyState) {
+    await mongoose.disconnect();
+  }
   mongoServer = await MongoMemoryServer.create();
-  await mongoose.connect(process.env.MONGODB_URI);
+  await mongoose.connect(process.env.MONGODB_URI_TEST);
 });
 
 afterEach(async () => {
