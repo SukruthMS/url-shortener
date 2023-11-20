@@ -97,4 +97,4 @@ Service to shorten long, hard to remember URLs into easy to share shortened re-d
 
 ## Testing
 
-- To run tests, use the following command:
+- To run tests, use the following command: `npm test`
